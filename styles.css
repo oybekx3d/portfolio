@@ -1,0 +1,136 @@
+:root{
+    --bgColor: #161b22;
+    --textColor: #fff0f0;
+    --textColorShade: #c9d1d9;
+    --secondaryColor: #21262d;
+    --secondaryColorLight: #2f353b;
+    --accentBlue: #00a2ff;
+    --accentGreen: #00ff22;
+    --accentPurple: #9900ff;
+}
+@keyframes infiniteJump {
+    0% { transform: translateY(0); }
+    45% { transform: translateY(-10px); }
+    75% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+body {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+    font-family: ui-sans-serif,system-ui,sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 90%;
+    margin: auto;
+    display: grid;
+    gap: 2rem;
+}
+
+h1{
+    font-size: min(6rem, 10vw);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+h2{
+    font-size: min(2rem, 5vw);
+    text-align: center;
+}
+#hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    text-align: center;
+    & h2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: var(--accentBlue);
+        font-size: min(1.2rem, 3vw);
+        font-weight: normal;
+        & hr{
+            width: 2ch;
+            border: none;
+            height: 1px;
+            background-color: var(--accentBlue);
+        }
+    }
+    aside{
+        font-size: min(.8rem, 1vw);
+        letter-spacing: 0.1em;
+        color: var(--textColorShade);
+        cursor: pointer;
+        margin-top: auto;
+        transition: color 0.3s ease;
+        animation: infiniteJump 1s ease-in-out infinite;
+        &:hover{
+            color: var(--accentGreen);
+        }
+    }
+}
+.skillsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    max-width: 60ch;
+    & li{
+        background-color: var(--secondaryColor);
+        font-size: .8em;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+        border: 1px solid var(--secondaryColorLight);
+        cursor: pointer;
+        &:hover{
+            background-color: var(--secondaryColorLight);
+            border-color: var(--accentBlue);
+            color: var(--textColor);
+        }
+    }
+}
+.buttonBasic{
+    font-size: .9rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondaryColorLight);
+    cursor: pointer;
+    &:hover{
+        background-color: var(--secondaryColorLight);
+        border: var(--textColor) 1px solid;
+    }
+}
+.buttonGlowing{
+    font-size: .9rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px var(--accentBlue), 0 0 7px var(--accentPurple), 0 0 7px var(--accentPurple);
+}
+button svg, a svg{
+    width: 1em !important;
+    height: 1em !important;
+    margin-left: 0.25em !important;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateY(-0.05em);
+}
