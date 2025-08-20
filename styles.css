@@ -7,6 +7,7 @@
     --accentBlue: #008cff;
     --accentGreen: #00ff22;
     --accentPurple: #9900ff;
+    --cardPadding: 1.5rem;
 }
 @keyframes infiniteJump {
     0% { transform: translateY(0); }
@@ -34,16 +35,25 @@ h1{
     margin-bottom: 0;
     margin-top: auto;
 }
+button, a{
+    cursor: pointer;
+}
+p a{
+    color: var(--accentBlue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 h2{
-    font-size: min(2rem, 5vw);
+    font-size: min(1.8rem, 5vw);
     text-align: center;
+    font-weight: bolder;
 }
 #hero{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 95vh;
+    height: 90vh;
     text-align: center;
     & h2{
         display: flex;
@@ -61,17 +71,20 @@ h2{
         }
     }
     & p{
-        font-size: min(1rem, 2vw);
+        font-size: min(1rem, 20px);
         color: var(--textColorShade);
         margin-top: 0.5rem;
         max-width: 60ch;
     }
     & div{
         display: flex;;
-        gap: 2rem;
+        gap: 1rem;
+    }
+    & .buttonGlowing:hover svg{
+        transform: translateX(1ch);
     }
     & aside{
-        font-size: min(.8rem, 1vw);
+        font-size: 12px;
         letter-spacing: 0.1em;
         color: var(--textColorShade);
         cursor: pointer;
@@ -81,6 +94,14 @@ h2{
         &:hover{
             color: var(--accentGreen);
         }
+    }
+}
+/* for hero section buttons to be responsive */
+@media screen and (max-width: 640px) {
+    #hero div{
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 .skillsList{
@@ -107,7 +128,6 @@ h2{
     }
 }
 .buttonBasic{
-    font-size: .9rem;
     display: inline-block;
     padding: 1rem 2rem;
     border-radius: 2rem;
@@ -120,11 +140,10 @@ h2{
     cursor: pointer;
     &:hover{
         background-color: var(--secondaryColorLight);
-        border: var(--textColor) 1px solid;
+        border: var(--textColorShade) 1px solid;
     }
 }
 .buttonGlowing{
-    font-size: .9rem;
     display: inline-block;
     padding: 1rem 2rem;
     border-radius: 2rem;
@@ -162,7 +181,7 @@ section{
     display: flex;
     flex-direction: column;
     background-color: var(--secondaryColor);
-    padding: 1.5rem;
+    padding: var(--cardPadding);
     border-radius: .5rem;
     gap: .5rem;
     & h3{
@@ -225,12 +244,88 @@ aside.emoji{
     font-size: 2em;
 }
 
-
-/* for hero section buttons */
-@media screen and (max-width: 640px) {
-    #hero div{
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
+.projectCard{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--secondaryColor);
+    border-radius: 1rem;
+    overflow: hidden;
+    & h3{
+        font-size: 1.5rem;
     }
+    & div:first-child{
+        padding: var(--cardPadding);
+        gap: 1rem;
+    }
+    & img{
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        aspect-ratio: 2 / 1;
+    }
+    & .projectDescription{
+        color: var(--textColorShade);
+    }
+    & .projectFeatures{
+        list-style: "▹" !important;
+        padding-left: 1ch;
+        display: grid;
+        gap: .8rem;
+        /* CUSTOM MARKER FOR LIST ELEMENT */
+        li{
+            padding-left: 1ch;
+            &::marker{
+                color: var(--accentGreen);
+                font-size: 1rem;
+            }
+        }
+    }
+}
+/* Porject card image responsiveness controller */
+@media screen and (min-width: 940px) {
+    .projectCard img{
+        aspect-ratio: 1 / 1;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 200px);
+        mask-image: linear-gradient(to right, transparent, black 200px);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        background-color: var(--secondaryColor);
+    }
+}
+@media screen and (max-width: 940px) {
+    :root{
+        --cardPadding: 1rem;
+    }
+    .projectCard{
+        grid-template-columns: 1fr;
+    }
+}
+.performanceMetrics{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    & li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.8rem;
+        .performanceMetricsScore{
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accentBlue);
+            margin: 0;
+        }
+        .performanceMetricsName{
+            color: var(--textColorShade);
+            margin: 0;
+        }
+    }
+}
+
+#projects{
+    display: grid;
+    gap: 2rem;
 }
