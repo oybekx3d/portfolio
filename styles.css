@@ -3,29 +3,67 @@
     --textColor: #fff0f0;
     --textColorShade: #c9d1d9;
     --secondaryColor: #21262d;
+    --secondaryColorDark: #0d1117;
     --secondaryColorLight: #2f353b;
     --accentBlue: #008cff;
     --accentGreen: #00ff22;
     --accentPurple: #9900ff;
     --cardPadding: 1.5rem;
 }
+/* keyframe for scroll to explore indicator in Hero section */
 @keyframes infiniteJump {
     0% { transform: translateY(0); }
     45% { transform: translateY(-10px); }
     75% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
-
-body {
+body{
+    padding: 0;
     background-color: var(--bgColor);
     color: var(--textColor);
     font-family: ui-sans-serif,system-ui,sans-serif;
+    margin: 0;
+}
+main {
     margin: 0;
     padding: 0;
     max-width: 90%;
     margin: auto;
     display: grid;
     gap: 2rem;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 0;
+    background-color: var(--secondaryColorDark);
+    & p{
+        max-width: 90%;
+        color: var(--textColorShade);
+        text-align: center;
+        margin: .3rem 0;
+    }
+    & div{
+        display: flex;
+        gap: 1rem;
+    }
+    & .buttonGlowing, .buttonBasic{
+        width: fit-content !important;
+        font-size: 1.5rem;
+        margin: 1em 0;
+    }
+    & a:not(.buttonGlowing){
+        width: 2rem;
+        height: 2rem;
+    }
+    & a:not(.buttonGlowing) svg{
+        width: 100% !important;
+        height: 100% !important;
+        fill: var(--textColorShade);
+        transition: fill 0.3s ease;
+    }
 }
 
 h1{
@@ -35,19 +73,72 @@ h1{
     margin-bottom: 0;
     margin-top: auto;
 }
+h2{
+    font-size: min(1.8rem, 5vw);
+    text-align: center;
+    font-weight: bolder;
+}
 button, a{
     cursor: pointer;
+}
+button svg, a svg{
+    width: 1em !important;
+    height: 1em !important;
+    margin-left: 0.25em !important;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateY(-0.05em);
 }
 p a{
     color: var(--accentBlue);
     text-decoration: none;
     transition: color 0.3s ease;
 }
-h2{
-    font-size: min(1.8rem, 5vw);
-    text-align: center;
-    font-weight: bolder;
+p img{
+    width: 1.2em !important;
+    height: 1.2em !important;
+    padding-top: .5rem;
+    margin-right: .5rem;
 }
+progress{
+    width: 100%;
+}
+section{
+    width: 100%;
+    max-width: 1200px !important;
+    margin: auto;
+    margin-bottom: 5vh;
+}
+/* Button Styles */
+.buttonBasic{
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondaryColorLight);
+    cursor: pointer;
+    &:hover{
+        background-color: var(--secondaryColorLight);
+        border: var(--textColorShade) 1px solid;
+    }
+}
+.buttonGlowing{
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px var(--accentBlue), 0 0 7px var(--accentPurple), 0 0 7px var(--accentPurple);
+}
+/* Section specific styles */
 #hero{
     display: flex;
     flex-direction: column;
@@ -96,6 +187,10 @@ h2{
         }
     }
 }
+#projects{
+    display: grid;
+    gap: 2rem;
+}
 /* for hero section buttons to be responsive */
 @media screen and (max-width: 640px) {
     #hero div{
@@ -104,6 +199,7 @@ h2{
         align-items: stretch;
     }
 }
+/* Other styles */
 .skillsList{
     display: flex;
     flex-wrap: wrap;
@@ -127,50 +223,6 @@ h2{
         }
     }
 }
-.buttonBasic{
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    background-color: var(--secondaryColor);
-    color: var(--textColor);
-    text-decoration: none;
-    font-weight: normal;
-    transition: all 0.3s ease;
-    border: 1px solid var(--secondaryColorLight);
-    cursor: pointer;
-    &:hover{
-        background-color: var(--secondaryColorLight);
-        border: var(--textColorShade) 1px solid;
-    }
-}
-.buttonGlowing{
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    background-color: var(--secondaryColor);
-    color: var(--textColor);
-    text-decoration: none;
-    font-weight: normal;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px var(--accentBlue), 0 0 7px var(--accentPurple), 0 0 7px var(--accentPurple);
-}
-button svg, a svg{
-    width: 1em !important;
-    height: 1em !important;
-    margin-left: 0.25em !important;
-    transition: transform 0.3s ease;
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateY(-0.05em);
-}
-
-section{
-    width: 100%;
-    max-width: 1200px !important;
-    margin: auto;
-    margin-bottom: 5vh;
-}
-
 .cardList{
     width: 100%;
     display: grid;
@@ -234,16 +286,12 @@ section{
 .card.progressColorPurple progress::-moz-progress-bar {
     background-color: var(--accentPurple) !important; 
 }
-progress{
-    width: 100%;
-}
 span.emoji{
     font-size: 1.5em;
 }
 aside.emoji{
     font-size: 2em;
 }
-
 .projectCard{
     display: grid;
     width: 100%;
@@ -284,25 +332,6 @@ aside.emoji{
         }
     }
 }
-/* Porject card image responsiveness controller */
-@media screen and (min-width: 940px) {
-    .projectCard img{
-        aspect-ratio: 1 / 1;
-        -webkit-mask-image: linear-gradient(to right, transparent, black 200px);
-        mask-image: linear-gradient(to right, transparent, black 200px);
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        background-color: var(--secondaryColor);
-    }
-}
-@media screen and (max-width: 940px) {
-    :root{
-        --cardPadding: 1rem;
-    }
-    .projectCard{
-        grid-template-columns: 1fr;
-    }
-}
 .performanceMetrics{
     display: flex;
     justify-content: space-around;
@@ -325,7 +354,22 @@ aside.emoji{
     }
 }
 
-#projects{
-    display: grid;
-    gap: 2rem;
+/* Project responsiveness controller */
+@media screen and (min-width: 940px) {
+    .projectCard img{
+        aspect-ratio: 1 / 1;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 200px);
+        mask-image: linear-gradient(to right, transparent, black 200px);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        background-color: var(--secondaryColor);
+    }
+}
+@media screen and (max-width: 940px) {
+    :root{
+        --cardPadding: 1rem;
+    }
+    .projectCard{
+        grid-template-columns: 1fr;
+    }
 }
