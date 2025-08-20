@@ -4,7 +4,7 @@
     --textColorShade: #c9d1d9;
     --secondaryColor: #21262d;
     --secondaryColorLight: #2f353b;
-    --accentBlue: #00a2ff;
+    --accentBlue: #008cff;
     --accentGreen: #00ff22;
     --accentPurple: #9900ff;
 }
@@ -139,4 +139,84 @@ button svg, a svg{
     display: inline-block;
     vertical-align: middle;
     transform: translateY(-0.05em);
+}
+
+section{
+    width: 100%;
+    max-width: 1200px !important;
+    margin: auto;
+    margin-bottom: 5vh;
+}
+
+.cardList{
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondaryColor);
+    padding: 1.5rem;
+    border-radius: .5rem;
+    gap: .5rem;
+    & h3{
+        margin-top: 0;
+        font-size: 1.1rem;
+    }
+    & label{
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        margin-top: .5rem;
+        & span{
+            color: var(--textColorShade);
+            font-size: .8em;
+        }
+    }
+    & progress{
+        height: .5rem;
+        border-radius: .25rem;
+        border: none;
+        background-color: var(--secondaryColorLight);
+        &::-webkit-progress-bar {
+            background-color: var(--secondaryColorLight);
+        }
+        &::-webkit-progress-value {
+            background-color: var(--accentBlue);
+        }
+    }
+    & ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: .5rem;
+        & li{
+            font-size: 0.8rem;
+            color: var(--textColorShade);
+        }
+    }
+}
+.card.progressColorGreen progress::-webkit-progress-value {
+    background-color: var(--accentGreen) !important;
+}
+.card.progressColorGreen progress::-moz-progress-bar {
+    background-color: var(--accentGreen) !important; 
+}
+.card.progressColorPurple progress::-webkit-progress-value {
+    background-color: var(--accentPurple) !important;
+}
+.card.progressColorPurple progress::-moz-progress-bar {
+    background-color: var(--accentPurple) !important; 
+}
+progress{
+    width: 100%;
+}
+span.emoji{
+    font-size: 1.5em;
+}
+aside.emoji{
+    font-size: 2em;
 }
