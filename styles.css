@@ -60,6 +60,12 @@ h2{
             background-color: var(--accentBlue);
         }
     }
+    & p{
+        font-size: min(1rem, 2vw);
+        color: var(--textColorShade);
+        margin-top: 0.5rem;
+        max-width: 60ch;
+    }
     aside{
         font-size: min(.8rem, 1vw);
         letter-spacing: 0.1em;
