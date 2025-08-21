@@ -17,6 +17,24 @@
     75% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
+@keyframes fadeSlideInRightBottom {
+    from {
+        opacity: 0;
+        transform: translateX(50%) translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+@keyframes basicFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 body{
     padding: 0;
     background-color: var(--bgColor);
@@ -146,6 +164,7 @@ section{
     justify-content: center;
     height: 90vh;
     text-align: center;
+    animation: basicFadeIn 1s ease-in-out;
     & h2{
         display: flex;
         align-items: center;
@@ -200,6 +219,11 @@ section{
     }
 }
 /* Other styles */
+.card, .projectCard{
+    animation: fadeSlideInRightBottom;
+    animation-timeline: view();
+    animation-range: 0px 20vh;
+}
 .skillsList{
     display: flex;
     flex-wrap: wrap;
