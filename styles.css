@@ -50,6 +50,178 @@ main {
     display: grid;
     gap: 2rem;
 }
+
+
+
+
+#menu {
+	background: var(--secondaryColorDark);
+	height: 60px;
+	padding: 0 1rem;
+	border-radius: 1rem;
+	position: fixed;
+	top: .5vh;
+	left: .5vw;
+	right: .5vw;
+	z-index: 999;
+    transition: all .2s;
+    &:hover{
+        box-shadow: 0 0 5px var(--accentBlue), 0 0 7px var(--accentPurple), 0 0 7px var(--accentPurple);
+    }
+}
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+#menu ul {
+	width: 100%;
+	text-align: right;
+}
+#menu li {
+	display: inline-block;
+	position: relative;
+}
+#menu a {
+	display: block;
+	line-height: 60px;
+	padding: 0 1em;
+	text-decoration: none;
+	color: var(--textColor);
+	font-size: 1em;
+}
+#menu a.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: .25em;
+}
+#menu li a:hover {
+	color: var(--textColorShade);
+}
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+#menu label {
+	display: none;
+	line-height: 60px;
+	text-align: center;
+	position: absolute;
+	left: 2em;
+}
+#menu #logo a{
+	width: max-content;
+    background-color: var(--secondaryColorDark);
+    &:hover{
+        background-color: var(--secondaryColorDark);
+    }
+}
+#menu label:before {
+	font-size: 1.6em;
+	color: var(--textColor);
+	content: "\2261";
+	margin-left: 1em;
+}
+#menu ul.sub-menus {
+	height: auto;
+	overflow: hidden;
+	width: 15ch;
+	background: var(--secondaryColorDark);
+	position: absolute;
+	z-index: 99;
+	display: none;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    transition: all .2s;
+    &:hover{
+        box-shadow: 0 0 5px var(--accentBlue), 0 0 7px var(--accentPurple), 0 0 7px var(--accentPurple);
+    }
+}
+#menu ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+#menu ul.sub-menus a {
+	color: var(--textColor);
+	font-size: 1em;
+}
+#menu li:hover ul.sub-menus {
+	display: block;
+}
+#menu ul.sub-menus a:hover {
+	color: var(--textColorShade);
+}
+
+/* Desktop layout */
+@media screen and (min-width: 801px) {
+	#menu ul {
+		text-align: right;
+	}
+	#menu #logo {
+		float: left;
+	}
+	#menu li {
+		display: inline-block;
+	}
+}
+
+/* Mobile layout */
+@media screen and (max-width: 800px) {
+	#menu ul {
+		background: var(--secondaryColorDark);
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		z-index: 3;
+		height: auto;
+		display: none;
+		text-align: left;
+	}
+	#menu ul.sub-menus {
+		width: 100%;
+		position: static;
+	}
+	#menu ul.sub-menus a {
+		padding-left: 2em;
+	}
+	#menu li {
+		display: block;
+		float: none;
+		width: auto;
+	}
+	#menu input, #menu label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+	}
+	#menu input {
+		z-index: 4;
+	}
+	#menu input:checked + label {
+		color: var(--textColor);
+	}
+	#menu input:checked + label:before {
+		content: "\00d7";
+	}
+	#menu input:checked ~ ul {
+		display: block;
+	}
+}
+
+
+
+
+
+
+
+
 footer{
     display: flex;
     flex-direction: column;

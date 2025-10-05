@@ -15,6 +15,23 @@
     <meta property="og:image" content="https://example.com/thumbnail.jpg">
 </head>
 <body>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li id="logo"><a href='/'>OybekX3D</a></li>
+            <li><a onclick="scrollToElement('techExpertise')">Tech Expertise</a></li>
+            <li><a onclick="scrollToElement('projects')">Projects</a></li>
+            <li><a href="resume.pdf">Resume</a></li>
+            <li><a class='dropdown-arrow' onclick="scrollToElement('footer')">Contact</a>
+                <ul class='sub-menus'>
+                    <li><a href="https://t.me/oybekX3D">Telegram</a></li>
+                    <li><a href="mailto:oybekx3d@gmail.com">Email</a></li>
+                    <li><a href='https://www.linkedin.com/in/oybekx3d/'>LinkedIn</a></li>
+                    <li><a href="https://github.com/oybekx3d">Github</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <main>
     <section id="hero">
         <h1>OybekX3D</h1>
@@ -213,6 +230,4 @@
         </div>
     </footer>
 </body>
-
 </html>
-
