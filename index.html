@@ -16,7 +16,7 @@
 </head>
 <body>
     <nav id='menu'>
-        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label id="menu-button" for="responsive-menu"></label>
         <ul>
             <li id="logo"><a href='/'>OybekX3D</a></li>
             <li><a onclick="scrollToElement('techExpertise')">Tech Expertise</a></li>
@@ -24,11 +24,28 @@
             <li><a href="resume.pdf">Resume</a></li>
             <li><a class='dropdown-arrow' onclick="scrollToElement('footer')">Contact</a>
                 <ul class='sub-menus'>
-                    <li><a href="https://t.me/oybekX3D">Telegram</a></li>
+                    <li><a target="_blank" href="https://t.me/oybekX3D">Telegram</a></li>
                     <li><a href="mailto:oybekx3d@gmail.com">Email</a></li>
-                    <li><a href='https://www.linkedin.com/in/oybekx3d/'>LinkedIn</a></li>
-                    <li><a href="https://github.com/oybekx3d">Github</a></li>
+                    <li><a target="_blank" href='https://www.linkedin.com/in/oybekx3d/'>LinkedIn</a></li>
+                    <li><a target="_blank" href="https://github.com/oybekx3d">Github</a></li>
                 </ul>
+            </li>
+            <li class="switch">
+                <label for="themeChange">
+                    <input id="themeChange" type="checkbox" onchange="document.body.classList.toggle('lightTheme', this.checked)" />
+                    <span class="slider">
+                    <div class="star star_1"></div>
+                    <div class="star star_2"></div>
+                    <div class="star star_3"></div>
+                    <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                        <path
+                        transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                        fill="#fff"
+                        d="M391.84 540.91c-.421-.329-.949-.524-1.523-.524..."
+                        ></path>
+                    </svg>
+                    </span>
+                </label>
             </li>
         </ul>
     </nav>

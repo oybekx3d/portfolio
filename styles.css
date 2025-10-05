@@ -1,4 +1,4 @@
-:root{
+:root {
     --bgColor: #161b22;
     --textColor: #fff0f0;
     --textColorShade: #c9d1d9;
@@ -9,6 +9,18 @@
     --accentGreen: #00ff22;
     --accentPurple: #9900ff;
     --cardPadding: 1.5rem;
+}
+
+.lightTheme {
+    --bgColor: #fff0f0;
+    --textColor: #161b22;
+    --textColorShade: #3f3f3f;
+    --secondaryColor: #e0d9d9;
+    --secondaryColorDark: #e0dddd;
+    --secondaryColorLight: #f0f0f0;
+    --accentBlue: #0063b4;
+    --accentGreen: #009213;
+    --accentPurple: #9900ff;
 }
 /* keyframe for scroll to explore indicator in Hero section */
 @keyframes infiniteJump {
@@ -77,6 +89,7 @@ main {
 #menu ul {
 	width: 100%;
 	text-align: right;
+    padding-bottom: 1rem;
 }
 #menu li {
 	display: inline-block;
@@ -97,7 +110,7 @@ main {
 #menu li a:hover {
 	color: var(--textColorShade);
 }
-#menu input {
+#menu input#responsive-menu {
 	display: none;
 	margin: 0;
 	padding: 0;
@@ -106,7 +119,7 @@ main {
 	opacity: 0;
 	cursor: pointer;
 }
-#menu label {
+#menu label#menu-button {
 	display: none;
 	line-height: 60px;
 	text-align: center;
@@ -120,7 +133,7 @@ main {
         background-color: var(--secondaryColorDark);
     }
 }
-#menu label:before {
+#menu label#menu-button:before {
 	font-size: 1.6em;
 	color: var(--textColor);
 	content: "\2261";
@@ -168,6 +181,9 @@ main {
 	#menu li {
 		display: inline-block;
 	}
+    .slider{
+        transform: translatey(-18%);
+    }
 }
 
 /* Mobile layout */
@@ -186,6 +202,7 @@ main {
 	#menu ul.sub-menus {
 		width: 100%;
 		position: static;
+        margin-bottom: 1rem;
 	}
 	#menu ul.sub-menus a {
 		padding-left: 2em;
@@ -195,7 +212,7 @@ main {
 		float: none;
 		width: auto;
 	}
-	#menu input, #menu label {
+	#menu input#responsive-menu, #menu label#menu-button {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -204,13 +221,13 @@ main {
 	#menu input {
 		z-index: 4;
 	}
-	#menu input:checked + label {
+	#menu input:checked + label#menu-button {
 		color: var(--textColor);
 	}
-	#menu input:checked + label:before {
+	#menu input:checked + label#menu-button:before {
 		content: "\00d7";
 	}
-	#menu input:checked ~ ul {
+	#menu input#responsive-menu:checked ~ ul {
 		display: block;
 	}
 }
@@ -568,4 +585,103 @@ aside.emoji{
     .projectCard{
         grid-template-columns: 1fr;
     }
+}
+
+
+
+/* From Uiverse.io by JustCode14 */ 
+/* Theme Switch */
+/* The switch - the box around the slider */
+.switch{
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 4em !important;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked + .slider {
+  background-color: #00a6ff;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  transition: all 0.4s;
+  height: 5px;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
 }
